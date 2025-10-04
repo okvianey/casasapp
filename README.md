@@ -49,7 +49,7 @@ Para mandar a producción
 * gatsby build
 
 Para desplegar en gh pages
-* npm deploy
+* npm run deploy
 
 
 ### Trobleshoothing
