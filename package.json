@@ -1,0 +1,39 @@
+{
+  "name": "casas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cantemos juntos",
+  "author": "vianydev",
+  "homepage": "https://himnapp.flatlatte.com/",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mdx-js/react": "^2.3.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.3",
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^5.1.0",
+    "gatsby": "^5.10.0",
+    "gatsby-plugin-layout": "^4.10.0",
+    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby-plugin-mdx": "^5.10.0",
+    "gatsby-plugin-offline": "^6.10.0",
+    "gatsby-source-filesystem": "^5.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
