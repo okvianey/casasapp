@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `casas`,
-    siteUrl: `https://github.com/okvianey/casasapp`,
+    siteUrl: `https://okvianey.github.io/casasapp/`,
   },
   pathPrefix: "/",
   plugins: [
