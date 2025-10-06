@@ -27,21 +27,21 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-2c9a5803b3988a060a24.js"
+    "url": "webpack-runtime-cb331f8048e5741800e2.js"
   },
   {
     "url": "framework-f3f44ff1cc6f4ac563f5.js"
   },
   {
-    "url": "app-24730574989efa3af83e.js"
+    "url": "app-a8fb78b6a3aab11d0d05.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "b04fec19939259364b314aabd2f81ef8"
+    "revision": "2168d118ad1d1cc63bab15b7706f9339"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "37716192cbc2f91dbdd0ffaf0d2db3dd"
+    "revision": "278136606dd83432953f9e11f063dd39"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -146,12 +146,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/casasapp`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/casasapp/app-24730574989efa3af83e.js`))) {
+  if (!resources || !(await caches.match(`/app-a8fb78b6a3aab11d0d05.js`))) {
     return await fetch(event.request)
   }
 
@@ -164,7 +164,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/casasapp/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
