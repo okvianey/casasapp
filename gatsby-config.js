@@ -3,7 +3,7 @@ module.exports = {
     title: `casas`,
     siteUrl: `https://casas.flatlatte.com`,
   },
-  pathPrefix: "/casasapp",
+  pathPrefix: "/",
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
