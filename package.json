@@ -4,7 +4,7 @@
   "private": true,
   "description": "Cantemos juntos",
   "author": "okvianey",
-  "homepage": "https://okvianey.github.io/casasapp/",
+  "homepage": "https://casas.flatlatte.com/",
   "keywords": [
     "gatsby"
   ],
@@ -14,7 +14,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",

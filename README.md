@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://okvianey.github.io">
-    <img alt="himnapp" src="/src/images/logo-white.svg" width="160" />
+    <img alt="casasapp" src="/src/images/logo-white.svg" width="160" />
   </a>
 </p>
 <h1 align="center">
- HIMNAPP
+ CASAS APP
 </h1>
 
 ## 🚀 Quick start
@@ -17,7 +17,7 @@
 
 👉🏻 Code: [Code URL](https://github.com/okvianey/casasapp)
 
-👉🏻 Live Site URL: [View Live Preview](https://casasapp.flatlatte.com/)
+👉🏻 Live Site URL: [View Live Preview](https://casas.flatlatte.com/)
 
 
 <!-- resources -->

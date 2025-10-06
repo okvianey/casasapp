@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `casas`,
-    siteUrl: `https://okvianey.github.io/casasapp/`,
+    siteUrl: `https://casas.flatlatte.com`,
   },
-  pathPrefix: "/",
+  pathPrefix: "/casasapp",
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
