@@ -17,10 +17,9 @@ const StyledSearchBox = styled("div")(({ theme }) => ({
   border: "1px dashed grey",
   display: "flex",
   justifyContent: "space-evenly",
-  alignItems: "center",
+  flexDirection: "column",
+  alignItems: "flex-start",
   [ theme.breakpoints.down("sm") ]: {
-    flexDirection: "column",
-    alignItems: "flex-start",
   },
 }));
 
@@ -58,7 +57,7 @@ const IndexPage = () => {
     <Layout>
       <Box>
         <StyledSearchBox>
-          <Typography variant="h1" mb={2}> Buscar: </Typography>
+          <Typography variant="h2" mb={1}> Buscar canción: </Typography>
           <SearchBar handleSearch={handleInput} />
         </StyledSearchBox>
 
@@ -89,5 +88,4 @@ const IndexPage = () => {
   );
 };
 
-// export const Head = () => <Seo title="Himnario" />;
 export default IndexPage;

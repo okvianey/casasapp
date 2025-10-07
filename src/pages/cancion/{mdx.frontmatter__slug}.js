@@ -1,25 +1,26 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby'
-import { useLocation } from "@reach/router";
+import {
+  graphql,
+  // Link
+} from 'gatsby'
+// import { useLocation } from "@reach/router";
 import Layout from '../../components/layout';
 // import Seo from '../../components/seo';
-
 import {
   Box,
-  Typography,
+  Typography
   // Paper,
-  Fab,
+  // Fab,
 } from "@mui/material";
-
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const HimnoPage = ({ data, children }) => {
 
-  const location = useLocation();
-  const hasNumber = /\d+/;
-  const hymnNumber = location.pathname.match(hasNumber);
-  const page = parseInt(hymnNumber);
+  // const location = useLocation();
+  // const hasNumber = /\d+/;
+  // const hymnNumber = location.pathname.match(hasNumber);
+  // const page = parseInt(hymnNumber);
 
 
   return (
@@ -75,6 +76,5 @@ query ($id: String = "id") {
   }
 }
 `
-
 // export const Head = ({ data }) => <Seo title={data.mdx.frontmatter.title} />
 export default HimnoPage;

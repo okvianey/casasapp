@@ -8,7 +8,7 @@ import {
   CardContent,
   CardMedia
 } from "@mui/material";
-import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
+// import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
 import Layout from "../components/layout";
 import flatlatte from "../images/flatlatte.png";
 // import Seo from "../components/seo";

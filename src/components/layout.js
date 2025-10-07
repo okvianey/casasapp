@@ -45,7 +45,9 @@ const Layout = ({ children }) => {
             dark: "#8E2730",
           },
           secondary: {
-            main: "#fffff",
+            main: mode === 'light' ? "#2e2e2e" : "#ffffff",
+            dark: "#2e2e2e",
+            light: "#fff",
           },
           neutral: {
             main: "#64748B",

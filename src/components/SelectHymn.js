@@ -14,7 +14,6 @@ import {
   Dialog,
   DialogContent
 } from "@mui/material";
-
 // import hymnsList from "../assets/hymnsList.json";
 
 const SimpleDialog = ({ onClose, open }) => {

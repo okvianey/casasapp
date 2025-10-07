@@ -15,12 +15,12 @@ const Search = styled('div')(({ theme }) => ({
   marginLeft: 0,
   width: '100%',
   [ theme.breakpoints.up('sm') ]: {
-    width: 'auto',
+    width: '100%',
   },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 1),
   height: '100%',
   position: 'absolute',
   pointerEvents: 'none',
@@ -31,17 +31,17 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
+  width: '100%',
   '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    border: `1px solid ${alpha(theme.palette.common.black, 0.15)}`,
-    borderRadius: '5px',
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
     width: '100%',
-    [ theme.breakpoints.up('md') ]: {
-      width: '20ch',
-    },
+    padding: theme.spacing(1, 0),
+    // border: '1px solid red',
+    borderRadius: '5px',
+    paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+    transition: theme.transitions.create('width'),
+  },
+  [ theme.breakpoints.up('sm') ]: {
+    // width: '20ch',
   },
 }));
 

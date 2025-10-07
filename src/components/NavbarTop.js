@@ -82,8 +82,10 @@ const NavbarTop = ({
           <Box m={"5px"}>
             <ButtonGroup
               size="medium"
-              color="neutral"
+              color="secondary"
               variant="outlined"
+              aria-label="Basic button group"
+              sx={{ color: "blue" }}  
             >
               <Button
                 disabled={textSize <= 12}
