@@ -40,9 +40,9 @@ const Layout = ({ children }) => {
         palette: {
           mode,
           primary: {
-            main: "#CC3945",
-            light: "#D6606A",
-            dark: "#8E2730",
+            main: mode === 'light' ? "#6339ccff" : "#a483f6",
+            light: "#6339ccff",
+            dark: "#a483f6",
           },
           secondary: {
             main: mode === 'light' ? "#2e2e2e" : "#ffffff",
@@ -113,10 +113,8 @@ const Layout = ({ children }) => {
         />
         <Container
           sx={{
-            padding: "100px 10px",
+            padding: "80px 10px",
             maxWidth: { md: "600px" },
-            // backgroundColor: theme.palette.background.default,
-            // color: theme.palette.text.primary,
             'ol p': {
               fontSize: `${textSize}px`,
             },

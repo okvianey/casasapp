@@ -9,7 +9,8 @@ import {
 // import ListIcon from "@mui/icons-material/List";
 import InfoIcon from '@mui/icons-material/Info';
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import BookIcon from '@mui/icons-material/Book';
+// import BookIcon from '@mui/icons-material/Book';
+import LibraryMusic from '@mui/icons-material/LibraryMusic';
 
 function BottomBar() {
   const location = useLocation();
@@ -17,7 +18,7 @@ function BottomBar() {
 
   const value =
     currentPage.includes("about") ? 2 :
-      currentPage.includes("cancion") ? 1 : 0;
+      currentPage.includes("musica") ? 1 : 0;
 
   return (
     <Paper
@@ -35,20 +36,21 @@ function BottomBar() {
         value={value}
         sx={{
           height: 80,
-          padding: "5px 0 0 0",
+          padding: "10px 0 0 0",
           alignItems: "flex-start"
         }}
       >
         <BottomNavigationAction
-          label="Buscar"
-          icon={<BookIcon />}
+          label="Letras"
+          icon={<AutoStoriesIcon />}
           component={Link}
           to="/"
         />
         <BottomNavigationAction
-          label="Canción"
-          icon={<AutoStoriesIcon />}
-          disabled
+          label="Escuchar"
+          icon={<LibraryMusic />}
+          component={Link}
+          to="/musica"
         />
         <BottomNavigationAction
           label="Info"

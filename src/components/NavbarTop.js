@@ -7,18 +7,13 @@ import {
   Toolbar,
   Divider,
   IconButton,
-  Button,
-  ButtonGroup,
 } from "@mui/material/";
 import { styled } from '@mui/material/styles';
-import {
-  TextIncrease,
-  TextDecrease,
-} from '@mui/icons-material';
 import logo from "../images/logo.png";
 import logoWhite from "../images/logo-white.svg";
 import DarkModeSwitch from "./darkModeSwitch";
 import ComboBox from "./comboBox";
+import TextZoomButtons from "./textZoomButtons";
 
 const TextZoomBox = styled('div')(({ theme }) => ({
   padding: "15px 10px 0 10px",
@@ -58,7 +53,7 @@ const NavbarTop = ({
           component={Link}
           to="/"
           sx={{
-            width: { xs: "100px", md: "100px", "borderRadius": "0", }
+            width: { xs: "80px", "borderRadius": "0", }
           }}
         >
           {
@@ -67,7 +62,10 @@ const NavbarTop = ({
               <img src={logo} alt="logo" width={"100%"} />
           }
         </IconButton>
-        <DarkModeSwitch mode={mode} />
+        <Box style={{display: 'inline-flex', alignItems: 'center'}}>     
+          <TextZoomButtons textSize={textSize} handleTextSize={handleTextSize} />
+          <DarkModeSwitch mode={mode} />
+        </Box>  
       </Toolbar>
 
       <Divider />
@@ -79,27 +77,6 @@ const NavbarTop = ({
           {
             !currentPage.includes("cancion") ? <span></span> : <ComboBox />
           }
-          <Box m={"5px"}>
-            <ButtonGroup
-              size="medium"
-              color="secondary"
-              variant="outlined"
-              aria-label="Basic button group"
-              sx={{ color: "blue" }}  
-            >
-              <Button
-                disabled={textSize <= 12}
-                onClick={() => handleTextSize("down")}>
-                  <TextDecrease sx={{ fontSize: "1rem" }} />
-              </Button>
-              <Button
-                disabled={textSize >= 30}
-                onClick={() => handleTextSize("up")}
-                >
-                  <TextIncrease sx={{ fontSize: "1rem" }} />
-              </Button>
-            </ButtonGroup>
-          </Box>
         </TextZoomBox> 
       }
     

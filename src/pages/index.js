@@ -13,7 +13,7 @@ import {
 import hymnsList from "../assets/hymnsList.json";
 
 const StyledSearchBox = styled("div")(({ theme }) => ({
-  padding: 20,
+  padding: "20px 10px",
   border: "1px dashed grey",
   display: "flex",
   justifyContent: "space-evenly",
