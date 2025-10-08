@@ -18,7 +18,8 @@ function BottomBar() {
 
   const value =
     currentPage.includes("about") ? 2 :
-      currentPage.includes("musica") ? 1 : 0;
+      currentPage.includes("musica") ? 1 :
+        currentPage.includes("cancion") ? 3 : 0;
 
   return (
     <Paper

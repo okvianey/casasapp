@@ -81,7 +81,14 @@ function Musica() {
           ))}
         </Box>
 
-        <Grid container spacing={0}>
+        <Grid
+          container
+          spacing={0}
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           {/* Player */}
           <Grid item xs={12} lg={8}>
             <Paper 
