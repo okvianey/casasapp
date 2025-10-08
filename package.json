@@ -14,7 +14,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
+    "deploy": "gatsby build --prefix-paths && echo 'casas.flatlatte.com' > public/CNAME && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",

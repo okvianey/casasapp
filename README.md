@@ -7,16 +7,9 @@
  CASAS APP
 </h1>
 
-## 🚀 Quick start
-
-
-
-## Overview
-
 ### Links
 
 👉🏻 Code: [Code URL](https://github.com/okvianey/casasapp)
-
 👉🏻 Live Site URL: [View Live Preview](https://casas.flatlatte.com/)
 
 
@@ -52,6 +45,11 @@ Para desplegar en gh pages
 * npm run deploy
 
 
+En el package.json
+    "deploy": "gatsby build --prefix-paths && echo 'casas.flatlatte.com' > public/CNAME && gh-pages -d public -b gh-pages"
+
+Este script es para que cada que se haga el deploy de una actualización, el CNAME en github pages se actualice automaticamente.
+
 ### Trobleshoothing
 
 Si hay error al hacer deploy, primero correr servidor con gatsby dev
@@ -62,7 +60,6 @@ Si se hace una actualización y no se ve la pagina. Revisar que en gh pages est�
 
 ## Author
 
-☕️ Made with coffee and code by [vianydev](https://okvianey.github.io)
-
+☕️ Made with coffee and code by [okvianey](https://flatlatte.com/okvianey)
 - Linkedin - [@vianydev](https://www.linkedin.com/in/vianydev/)
 - Github - [@vianydev](https://github.com/okvianey)
