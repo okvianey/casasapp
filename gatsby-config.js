@@ -13,7 +13,7 @@ module.exports = {
         description: `Cantemos juntos`,
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#6339ccff",
+        // theme_color: "#6339ccff",
         display: "standalone",
         icon: "src/images/icon.png", // This path is relative to the root of the site.
         crossOrigin: `use-credentials`,

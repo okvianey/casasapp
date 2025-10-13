@@ -37,6 +37,7 @@ const NavbarTop = ({
     <AppBar
       color="inherit"
       position="fixed"
+      elevation={1}
       sx={{
         padding: "10px",
         zIndex: 100
@@ -67,19 +68,17 @@ const NavbarTop = ({
           <DarkModeSwitch mode={mode} />
         </Box>  
       </Toolbar>
-
-      <Divider />
-
       {
-        currentPage.includes("about") ? <span></span> : 
-
-        <TextZoomBox sx={{ justifyContent: "center", alignItems: "center" }}>
-          {
-            !currentPage.includes("cancion") ? <span></span> : <ComboBox />
-          }
-        </TextZoomBox> 
+        currentPage.includes("cancion") ? <Divider /> : <span></span>
+        
       }
-    
+      {
+        !currentPage.includes("cancion") ? <span></span> :
+          <TextZoomBox sx={{ justifyContent: "center", alignItems: "center" }}>
+            <ComboBox />
+          </TextZoomBox> 
+      }
+
     </AppBar>
   );
 };

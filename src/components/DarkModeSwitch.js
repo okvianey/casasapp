@@ -11,7 +11,7 @@ export default function DarkModeSwitch({ mode }) {
 
   return (
     <IconButton sx = {{ ml: 1 }} onClick = { colorMode.toggleColorMode } color = "inherit" >
-      {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon color='neutral'/>}
+      {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon color = "neutral"/>}
     </IconButton>
   )
 }

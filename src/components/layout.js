@@ -4,6 +4,8 @@ import { CssBaseline, Container, GlobalStyles } from "@mui/material/";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavbarTop from "./NavbarTop";
 import BottomBar from "./BottomBar";
+import InstallPrompt from "./install-prompt";
+import InstallFab from "./install-fab";
 
 const getDefaultTheme = () => {
   const isBrowser = typeof window !== "undefined";
@@ -50,10 +52,14 @@ const Layout = ({ children }) => {
             light: "#fff",
           },
           neutral: {
-            main: "#64748B",
-            contrastText: "#fff",
+            main: mode === 'light' ? "#2e2e2e" : "#ffffff",
+            contrastText: mode === 'light' ? "#2e2e2e" : "#ffffff",
+            contrast: mode === 'light' ? "#ffffff" : "#2e2e2e",
             bgDark: "#2e2e2e",
             bgLight: "#fff"
+          },
+          element: {
+            main: mode === 'light' ? "#b5bcc6ff" : "#ffffff",
           },
         },
         typography: {
@@ -69,6 +75,9 @@ const Layout = ({ children }) => {
           },
           body2: {
             fontSize: "1.4rem",
+          },
+          body3: {
+            fontSize: "1.1rem",
           },
         },
       }),
@@ -127,9 +136,13 @@ const Layout = ({ children }) => {
               mode={mode} 
               handleTextSize={handleTextSize}
               textSize={textSize}
-            />
+          />
+          {/* si pasamos el componente BottomBar debajo de childre, se genera un bug al cambiar de tema dar a light. La barra permanece de un solo color */}
            <BottomBar />
-            {children}
+          {children}
+           {/* Componentes de instalación */}
+          <InstallPrompt />
+          <InstallFab />
         </Container>
       </ThemeProvider>
     </ColorModeContext.Provider>

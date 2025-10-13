@@ -6,10 +6,8 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from "@mui/material/";
-// import ListIcon from "@mui/icons-material/List";
 import InfoIcon from '@mui/icons-material/Info';
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-// import BookIcon from '@mui/icons-material/Book';
 import LibraryMusic from '@mui/icons-material/LibraryMusic';
 
 function BottomBar() {
