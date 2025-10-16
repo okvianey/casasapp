@@ -28,7 +28,6 @@ const ShareCard = () => {
     const shareUrls = {
       whatsapp: `https://wa.me/?text=${text}%20${url}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`,
-      instagram: `https://instagram.com/intent/tweet?text=${text}&url=${url}`,
     };
 
     if (shareUrls[platform]) {
@@ -95,17 +94,6 @@ const ShareCard = () => {
             }}
           >
             <Facebook />
-          </IconButton>
-          
-          <IconButton 
-            onClick={() => handleShare('instagram')}
-            sx={{ 
-              backgroundColor: '#e4683bff', 
-              color: 'white',
-              '&:hover': { backgroundColor: '#da4d1aff' }
-            }}
-          >
-            <Instagram />
           </IconButton>
           
           <IconButton 
