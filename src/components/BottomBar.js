@@ -9,6 +9,7 @@ import {
 import InfoIcon from '@mui/icons-material/Info';
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import LibraryMusic from '@mui/icons-material/LibraryMusic';
+import ShareIcon from '@mui/icons-material/Share';
 
 function BottomBar() {
   const location = useLocation();
@@ -17,7 +18,8 @@ function BottomBar() {
   const value =
     currentPage.includes("about") ? 2 :
       currentPage.includes("musica") ? 1 :
-        currentPage.includes("cancion") ? 3 : 0;
+        currentPage.includes("cancion") || currentPage.includes("instalar") ? 5 :
+          currentPage.includes("compartir") ? 3 : 0;
 
   return (
     <Paper
@@ -56,6 +58,12 @@ function BottomBar() {
           icon={<InfoIcon />}
           component={Link}
           to="/about"
+        />
+        <BottomNavigationAction
+          label="Compartir"
+          icon={<ShareIcon />}
+          component={Link}
+          to="/compartir"
         />
 
       </BottomNavigation> 

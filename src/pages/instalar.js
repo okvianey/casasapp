@@ -323,7 +323,7 @@ const InstallPage = () => {
               
 
               {/* Información de la plataforma */}
-              <Card sx={{ borderRadius: 3 }}>
+              {/* <Card sx={{ borderRadius: 3 }}>
                 <CardContent sx={{ p: 3 }}>
                   <Typography variant="h6" gutterBottom fontWeight="bold">
                     📱 Información del Dispositivo
@@ -352,7 +352,8 @@ const InstallPage = () => {
                     }
                   </Typography>
                 </CardContent>
-              </Card>
+              </Card> */}
+              
             </Box>
           </Grid>
           {/* Instrucciones de instalación */}

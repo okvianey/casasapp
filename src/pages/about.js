@@ -54,43 +54,27 @@ function About() {
                   <OfflineBolt color="primary" sx={{ fontSize: 20 }} />
                   <strong>Acceso desde tu pantalla principal</strong> 
                 </Typography>
-                <Typography variant="body1" component="li" display="flex" alignItems="center" gap={1}>
+                <Typography variant="body1" component="li" display="flex" alignItems="center" gap={1} mb={3}>
                   <Download color="primary" sx={{ fontSize: 20 }} />
                   <strong>Funciona sin internet </strong> 
-                </Typography>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12}>
-              <Card sx={{ p: 3, textAlign: 'center', borderRadius: 3 }}>
-                <AddToHomeScreen 
-                  sx={{ 
-                    fontSize: 60, 
-                    color: theme.palette.primary.main,
-                    mb: 2 
-                  }} 
-                />
-                
-
-                <Button
+              </Typography>
+              <Button
                   fullWidth
                   variant="contained"
                   size="large"
-                  // startIcon={isIOS ? <AddToHomeScreen /> : <Download />}
+                  startIcon={<AddToHomeScreen />}
                   onClick={() => navigate("/instalar")}
-                  // onClick={handleInstall}
                   sx={{
                     borderRadius: 2,
                     py: 1.5,
                     fontWeight: 'bold',
                     textTransform: 'none',
-                    fontSize: '1.1rem'
+                    fontSize: '1.1rem',
                   }}
                 >
                   {isIOS ? "Ver como instalar" : "Ver como instalar "}
                 </Button>
-
-              </Card>
+              </Box>
             </Grid>
           </Grid>
       </Paper>
@@ -143,7 +127,7 @@ function About() {
                   ¿Necesitas ayuda?
                 </Typography>
                  <Typography variant="body3" color="text.secondary">
-                      Escríbenos por WhatsApp
+                      Si ves un error o tienes alguna duda, envía un email a <Typography variant="overline">hola@flatlatte.com</Typography> o escríbenos por WhatsApp
                     </Typography>
                
                 <Box
@@ -194,11 +178,11 @@ function About() {
                     padding: 2,
                     backgroundColor: 'white',
                     borderRadius: '50%',
-                    border: `2px solid ${theme.palette.primary.main}20`,
+                    border: `2px solid ${theme.palette.neutral.main}20`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: 2,
+                    // boxShadow: 2,
                   }}
                 >
                   <CardMedia
@@ -225,7 +209,7 @@ function About() {
                 </Typography>
                 
                 <Typography 
-                  variant="h6" 
+                  variant="body" 
                   color="text.secondary"
                   sx={{ 
                     fontWeight: 500,
