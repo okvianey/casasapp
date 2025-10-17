@@ -17,6 +17,8 @@ import {
   ClearAll as ClearIcon,
   DragIndicator as DragIcon,
 } from '@mui/icons-material';
+import { useDragAndDrop } from '../hooks/useDragAndDrop';
+
 
 const LyricsListManager = ({ 
   lyricsList, 
@@ -24,12 +26,17 @@ const LyricsListManager = ({
   onRemove, 
   onView,
   onClear,
-  onDragStart,
-  onDragOver,
-  onDrop,
   onMove,
 }) => {
-  const [dragStartIndex, setDragStartIndex] = useState(null);
+  const {
+    draggedItem,
+    dragOverIndex,
+    handleDragStart,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    handleDragEnd,
+  } = useDragAndDrop(lyricsList, onMove);
 
   if (lyricsList.length === 0) {
     return (
@@ -44,22 +51,54 @@ const LyricsListManager = ({
     );
   }
 
-   const handleDragStart = (e, index) => {
-    setDragStartIndex(index);
-    e.dataTransfer.effectAllowed = 'move';
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
-  };
-
-  const handleDrop = (e, dropIndex) => {
-    e.preventDefault();
-    if (dragStartIndex !== null && dragStartIndex !== dropIndex && onMove) {
-      onMove(dragStartIndex, dropIndex);
+  const getItemStyle = (index) => {
+    const baseStyle = {
+      border: 1,
+      borderColor: 'divider',
+      borderRadius: 1,
+      mb: 1,
+      cursor: 'grab',
+      transition: 'all 0.2s ease',
+      '&:hover': {
+        backgroundColor: 'action.hover',
+        boxShadow: 1,
+      },
+      '&:active': {
+        cursor: 'grabbing',
+      },
+    };
+  // Estilo para el elemento que se está arrastrando
+    if (index === draggedItem) {
+      return {
+        ...baseStyle,
+        opacity: 0.5,
+        backgroundColor: 'action.selected',
+        borderColor: 'primary.main',
+      };
     }
-    setDragStartIndex(null);
+
+    // Estilo para el elemento sobre el que se está arrastrando
+    if (index === dragOverIndex) {
+      return {
+        ...baseStyle,
+        backgroundColor: 'action.hover',
+        borderColor: 'primary.main',
+        borderStyle: 'dashed',
+        transform: 'scale(1.02)',
+      };
+    }
+
+    // Estilo para la canción actualmente seleccionada
+    if (index === currentSongIndex) {
+      return {
+        ...baseStyle,
+        backgroundColor: 'primary.light',
+        borderColor: 'primary.main',
+        borderWidth: 2,
+      };
+    }
+
+    return baseStyle;
   };
 
 
@@ -84,20 +123,12 @@ const LyricsListManager = ({
           <ListItem
             key={song.listId}
             draggable
-            onDragStart={(e) => onDragStart(e, index)}
-            onDragOver={(e) => onDragOver(e)}
-            onDrop={(e) => onDrop(e, index)}
-            sx={{
-              backgroundColor: index === currentSongIndex ? 'action.selected' : 'background.paper',
-              border: index === currentSongIndex ? 1 : 0,
-              borderColor: 'primary.main',
-              borderRadius: 1,
-              mb: 1,
-              cursor: 'grab',
-              '&:hover': {
-                backgroundColor: 'action.hover',
-              },
-            }}
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragOver={(e) => handleDragOver(e, index)}
+            onDragLeave={handleDragLeave}
+            onDrop={(e) => handleDrop(e, index)}
+            onDragEnd={handleDragEnd}
+            sx={getItemStyle(index)}
           >
             {/* Ícono de arrastrar y número */}
             <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
