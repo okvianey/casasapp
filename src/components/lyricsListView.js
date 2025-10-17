@@ -89,18 +89,6 @@ const LyricsListView = () => {
 
   return (
     <Box sx={{ width: '100%', maxWidth: 1200, margin: '0 auto', p: 2 }}>
-      {/* Visor de letras principal */}
-      <LyricsViewer
-        currentSong={currentSong}
-        currentSongIndex={currentSongIndex}
-        totalSongs={totalSongs}
-        onNext={nextSong}
-        onPrev={prevSong}
-        onClose={() => goToSong(-1)}
-        onFullscreen={handleFullscreenFromViewer}
-        hasNext={hasNext}
-        hasPrev={hasPrev}
-      />
 
       {/* Pestañas */}
       <Paper sx={{ mb: 2 }}>
@@ -167,20 +155,23 @@ const LyricsListView = () => {
         }}>
           <Box sx={{ maxWidth: 800, width: '100%' }}>
             {renderSafeContent(fullscreenSong?.body)}
-            {/* {fullscreenSong?.body ? (
-              
-              <MDXRenderer>
-                {fullscreenSong.body}
-              </MDXRenderer>
-
-            ) : (
-              <Typography textAlign="center" color="text.secondary">
-                No hay letra disponible
-              </Typography>
-            )} */}
           </Box>
         </Box>
       </Dialog>
+
+       {/* Visor de letras principal */}
+      {currentTab === 1 &&
+        <LyricsViewer
+        currentSong={currentSong}
+        currentSongIndex={currentSongIndex}
+        totalSongs={totalSongs}
+        onNext={nextSong}
+        onPrev={prevSong}
+        onClose={() => goToSong(-1)}
+        onFullscreen={handleFullscreenFromViewer}
+        hasNext={hasNext}
+        hasPrev={hasPrev}
+      />}
     </Box>
   );
 };

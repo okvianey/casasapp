@@ -138,9 +138,7 @@ const LyricsListManager = ({
           </ListItem>
         ))}
       </List>
-       <Typography variant="body2" color="text.secondary" sx={{ mt: 2, textAlign: 'center' }}>
-        💡 Arrastra las canciones para reordenar tu lista
-      </Typography>
+       
     </Paper>
   );
 };
