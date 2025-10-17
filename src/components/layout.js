@@ -4,7 +4,6 @@ import { CssBaseline, Container, GlobalStyles } from "@mui/material/";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavbarTop from "./NavbarTop";
 import BottomBar from "./BottomBar";
-import InstallPrompt from "./install-prompt";
 import InstallFab from "./install-fab";
 
 const getDefaultTheme = () => {
@@ -140,9 +139,9 @@ const Layout = ({ children }) => {
           {/* si pasamos el componente BottomBar debajo de childre, se genera un bug al cambiar de tema dar a light. La barra permanece de un solo color */}
            <BottomBar />
           {children}
-           {/* Componentes de instalación */}
-          <InstallPrompt />
+          {/* Componentes de instalación */}
           <InstallFab />
+          
         </Container>
       </ThemeProvider>
     </ColorModeContext.Provider>

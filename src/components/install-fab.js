@@ -91,12 +91,13 @@ const InstallFab = () => {
 
   const { isDesktop } = platformInfo;
   const isOnInstallPage = currentPath.includes('/instalar') || currentPath.includes('/about') ? true : false;
+  const isCancionPage = currentPath.includes('/cancion') ? true : false;
 
   // No mostrar si:
   // 1. Ya está instalada como PWA
   // 2. Es una computadora de escritorio
   // 3. No es visible
-  if (isStandalone || isDesktop || !isVisible || isOnInstallPage ) {
+  if (isStandalone || isDesktop || !isVisible || isOnInstallPage || isCancionPage) {
     return null;
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../../components/layout';
-// import Seo from '../../Components/seo';
+import FullscreenLyrics from '../../components/fullscreenLyrics';
 import {
   Paper,
   Box,

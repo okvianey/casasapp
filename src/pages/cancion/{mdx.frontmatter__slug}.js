@@ -3,9 +3,8 @@ import {
   graphql,
   // Link
 } from 'gatsby'
-// import { useLocation } from "@reach/router";
 import Layout from '../../components/layout';
-// import Seo from '../../components/seo';
+import FullscreenLyrics from '../../components/fullscreenLyrics';
 import {
   Box,
   Typography
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import FullPageFab from '../../components/fullPageFab';
 
 const HimnoPage = ({ data, children }) => {
 
@@ -25,10 +25,12 @@ const HimnoPage = ({ data, children }) => {
 
   return (
     <Layout color="inherit">
-      <Typography variant="h1" align="center" gutterBottom>
-        {data.mdx.frontmatter.title}
-      </Typography>
+      <Box sx={{ display: "flex", justifyContent: "center", margin: "0 auto" }}>
+        <Typography variant="h1" align="center" gutterBottom>
+          {data.mdx.frontmatter.title}
+        </Typography>
 
+      </Box>
       <Box
         color="inherit"
         align="center"
@@ -43,8 +45,9 @@ const HimnoPage = ({ data, children }) => {
           },
 
         }} >
+          
+            {children}
 
-        {children}
 
         <Box
           color="inherit"
@@ -58,7 +61,7 @@ const HimnoPage = ({ data, children }) => {
             width: "100%",
             padding: "0 5px"
           }}>
-          
+          <FullPageFab lyrics={children} />
         </Box>
 
       </Box>
