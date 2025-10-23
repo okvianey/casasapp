@@ -8,6 +8,7 @@ import {
   Divider,
   IconButton,
 } from "@mui/material/";
+import InfoIcon from '@mui/icons-material/Info';
 import { styled } from '@mui/material/styles';
 import logo from "../images/logo.png";
 import logoWhite from "../images/logo-white.svg";
@@ -66,6 +67,12 @@ const NavbarTop = ({
         <Box style={{display: 'inline-flex', alignItems: 'center'}}>     
           <TextZoomButtons textSize={textSize} handleTextSize={handleTextSize} />
           <DarkModeSwitch mode={mode} />
+          <IconButton
+            component={Link}
+            to="/about"
+          >
+            <InfoIcon />
+          </IconButton>
         </Box>  
       </Toolbar>
       {

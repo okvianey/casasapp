@@ -6,7 +6,6 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from "@mui/material/";
-import InfoIcon from '@mui/icons-material/Info';
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import LibraryMusic from '@mui/icons-material/LibraryMusic';
 import ShareIcon from '@mui/icons-material/Share';
@@ -16,13 +15,14 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 function BottomBar() {
   const location = useLocation();
   const currentPage = location.pathname;
+  console.log("🚀 ~ currentPage:", currentPage)
 
   const value =
-    currentPage.includes("about") ? 3 :
-      currentPage.includes("lista") ? 1 :
-      currentPage.includes("musica") ? 2 :
-        currentPage.includes("cancion") || currentPage.includes("instalar") ? 5 :
-          currentPage.includes("compartir") ? 4 : 0;
+      currentPage === "/" ? 0 :
+      currentPage === "/lista/" ? 1 :
+      currentPage === "/musica/" ? 2 :
+      currentPage === "/compartir/" ? 3 : 5;
+
 
   return (
     <Paper
@@ -61,12 +61,6 @@ function BottomBar() {
           icon={<LibraryMusic />}
           component={Link}
           to="/musica"
-        />
-        <BottomNavigationAction
-          label="Info"
-          icon={<InfoIcon />}
-          component={Link}
-          to="/about"
         />
         <BottomNavigationAction
           label="Compartir"

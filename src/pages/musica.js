@@ -106,7 +106,7 @@ function Musica() {
   
               }}
             > 
-              <Box
+              {/* <Box
                 component="iframe"
                 src={platforms[activePlatform].embed}
                 width="100%"
@@ -119,7 +119,7 @@ function Musica() {
                   display: 'block',
                   borderRadius: '12px',
                 }}
-              />
+              /> */}
             </Paper>
 
             {/* Direct Links */}
@@ -146,7 +146,7 @@ function Musica() {
         </Grid>
 
         {/* All Platforms Links */}
-        <Box sx={{ mt: 6, textAlign: 'center' }}>
+        {/* <Box sx={{ mt: 6, textAlign: 'center' }}>
           <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
             También disponible en:
           </Typography>
@@ -169,7 +169,7 @@ function Musica() {
               </Button>
             ))}
           </Box>
-        </Box>
+        </Box> */}
       </Container>
       
 
