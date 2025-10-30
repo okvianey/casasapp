@@ -139,8 +139,9 @@ const Layout = ({ children }) => {
           {/* si pasamos el componente BottomBar debajo de childre, se genera un bug al cambiar de tema dar a light. La barra permanece de un solo color */}
            <BottomBar />
           {children}
+          
           {/* Componentes de instalación */}
-          <InstallFab />
+          {/* <InstallFab /> */}
           
         </Container>
       </ThemeProvider>

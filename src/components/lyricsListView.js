@@ -15,7 +15,6 @@ import {
   NavigateNext as NextIcon,
   NavigateBefore as PrevIcon,
 } from '@mui/icons-material';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { useLyricsList } from '../hooks/useLyricsList';
 import LyricsViewer from './lyricsViewer';
 import LyricsListManager from './lyricsListManager';
@@ -77,8 +76,9 @@ const LyricsListView = () => {
         sx={{
           whiteSpace: 'pre-wrap',
           textAlign: 'center',
-          fontSize: '1.2rem',
-          lineHeight: 1.8,
+          fontSize: '1rem',
+          // fontSize: '1rem',
+          // lineHeight: 1.4,
           fontFamily: 'inherit',
         }}
       >
@@ -145,15 +145,20 @@ const LyricsListView = () => {
         </AppBar>
 
         <Box sx={{ 
-          p: 4, 
+          // p: 4, 
           height: '100%', 
           display: 'flex', 
-          alignItems: 'center', 
+          // alignItems: 'start', 
           justifyContent: 'center',
-          backgroundColor: 'background.default',
+          // backgroundColor: 'background.default',
           overflow: 'auto',
         }}>
-          <Box sx={{ maxWidth: 800, width: '100%' }}>
+          <Box
+            sx={{
+              maxWidth: 800,
+              width: '100%',
+              // position: "relative",
+            }}>
             {renderSafeContent(fullscreenSong?.body)}
           </Box>
         </Box>

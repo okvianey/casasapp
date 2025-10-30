@@ -65,8 +65,15 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
             startAdornment: <SearchIcon color="action" sx={{ mr: 1 }} />,
           }}
           size="small"
+          sx={{
+            mb: 1,
+          }}
         />
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+        <Typography variant="body" color="text.secondary"
+          sx={{
+            mt: 1,
+          }}
+        >
           {filteredSongs.length} de {songs.length} canciones
         </Typography>
       </Box>
@@ -88,7 +95,11 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
           >
             <ListItemText
               primary={
-                <Typography variant="subtitle1" component="div">
+                <Typography variant="subtitle1" component="div"
+                  sx={{
+                  maxWidth: { xs: 180, sm: 'none' },
+                }}
+                >
                   {song.title}
                   {/* {song.frontmatter.title} */}
                 </Typography>

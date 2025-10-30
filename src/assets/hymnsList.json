@@ -1,190 +1,204 @@
 [
         {
           "frontmatter": {
-            "slug": 14,
-            "title": "Alabemos al Señor"
+            "title": "Al tu rostro ver",
+            "slug": 30
+          },
+          "id": "da6a35fb-31a2-5885-8596-134c9d2bb375"
+        },
+        {
+          "frontmatter": {
+            "title": "Alabemos al Señor",
+            "slug": 14
           },
           "id": "04b08a96-0c48-510a-9931-7038276f7634"
         },
         {
           "frontmatter": {
-            "slug": 17,
-            "title": "Arraigado"
+            "title": "Arraigado",
+            "slug": 17
           },
           "id": "980b112c-ee03-59e8-8ccc-99ae489a86c5"
         },
         {
           "frontmatter": {
-            "slug": 21,
-            "title": "Construiré mi vida"
+            "title": "Construiré mi vida",
+            "slug": 21
           },
           "id": "fcda8067-65d7-542e-ae4c-5a1546128bfe"
         },
         {
           "frontmatter": {
-            "slug": 2,
-            "title": "Cuán grande es Él"
+            "title": "Cuán grande es Él",
+            "slug": 2
           },
           "id": "cd520f8d-5e38-5a09-b305-97e6d7fef405"
         },
         {
           "frontmatter": {
-            "slug": 1,
-            "title": "El Dios que adoramos"
+            "title": "Dios poderoso",
+            "slug": 29
+          },
+          "id": "310eb8b3-df74-547c-ba92-512c1dd67900"
+        },
+        {
+          "frontmatter": {
+            "title": "El Dios que adoramos",
+            "slug": 1
           },
           "id": "467bd326-f1cd-5c9c-ac11-9a36821004ee"
         },
         {
           "frontmatter": {
-            "slug": 20,
-            "title": "En Jesucristo el Rey de Paz"
+            "title": "En Jesucristo el Rey de Paz",
+            "slug": 20
           },
           "id": "5c2e40a0-bdec-569f-9361-84ec46386d06"
         },
         {
           "frontmatter": {
-            "slug": 15,
-            "title": "En esto conocemos"
+            "title": "En esto conocemos",
+            "slug": 15
           },
           "id": "8455c76f-bc3f-5753-b795-142b56827f60"
         },
         {
           "frontmatter": {
-            "slug": 16,
-            "title": "Envíame"
+            "title": "Envíame",
+            "slug": 16
           },
           "id": "8c14459e-d886-5560-85b1-c6b86f66f3c0"
         },
         {
           "frontmatter": {
-            "slug": 11,
-            "title": "Glorifícate"
+            "title": "Glorifícate",
+            "slug": 11
           },
           "id": "ebf18a3a-133b-5069-b757-3599140f2291"
         },
         {
           "frontmatter": {
-            "slug": 3,
-            "title": "Gracia sublime es"
+            "title": "Gracia sublime es",
+            "slug": 3
           },
           "id": "5122508a-e123-5cd4-97ad-cae1ec0de6d4"
         },
         {
           "frontmatter": {
-            "slug": 5,
-            "title": "Hay libertad"
+            "title": "Hay libertad",
+            "slug": 5
           },
           "id": "26e70e53-0d01-5b0c-84f6-29f390f427ab"
         },
         {
           "frontmatter": {
-            "slug": 22,
-            "title": "Mas El Dios de toda gracia"
+            "title": "Mas El Dios de toda gracia",
+            "slug": 22
           },
           "id": "07b465de-8f2e-55fb-9f83-b5a2a330666e"
         },
         {
           "frontmatter": {
-            "slug": 25,
-            "title": "Mi esperanza está en Jesús"
+            "title": "Mi esperanza está en Jesús",
+            "slug": 25
           },
           "id": "94ddfa19-0e99-5f40-9176-ea818bc85a64"
         },
         {
           "frontmatter": {
-            "slug": 10,
-            "title": "Nombre Sobre Todo"
+            "title": "Nombre Sobre Todo",
+            "slug": 10
           },
           "id": "e2fc953d-4a57-5ce2-b184-2dbe88035264"
         },
         {
           "frontmatter": {
-            "slug": 7,
-            "title": "Nuestro Dios"
+            "title": "Nuestro Dios",
+            "slug": 7
           },
           "id": "58b77260-4a7b-5daa-9126-2681b5a44c73"
         },
         {
           "frontmatter": {
-            "slug": 13,
-            "title": "Poderoso Dios"
+            "title": "Poderoso Dios",
+            "slug": 13
           },
           "id": "a8ebac04-e369-5089-a16d-818437e2b551"
         },
         {
           "frontmatter": {
-            "slug": 19,
-            "title": "Porque Él Vive"
+            "title": "Porque Él Vive",
+            "slug": 19
           },
           "id": "ec976dba-db33-59a1-9790-f6ae47be1fb2"
         },
         {
           "frontmatter": {
-            "slug": 23,
-            "title": "Recordamos Hoy"
+            "title": "Recordamos Hoy",
+            "slug": 23
           },
           "id": "6f74d959-35e3-5004-82e9-5bf1ab90634a"
         },
         {
           "frontmatter": {
-            "slug": 28,
-            "title": "Revelación"
+            "title": "Revelación",
+            "slug": 28
           },
           "id": "172e1ffc-7d5f-5070-a4bd-d12fe7f61a27"
         },
         {
           "frontmatter": {
-            "slug": 4,
-            "title": "Santo por Siempre"
+            "title": "Santo por Siempre",
+            "slug": 4
           },
           "id": "21083a03-d104-5348-be43-06d1510874c5"
         },
         {
           "frontmatter": {
-            "slug": 27,
-            "title": "Serviremos al Señor"
+            "title": "Serviremos al Señor",
+            "slug": 27
           },
           "id": "0794a700-9a8e-5ccb-baa9-6cb43d93dbfa"
         },
         {
           "frontmatter": {
-            "slug": 6,
-            "title": "Sublime gracia"
+            "title": "Sublime gracia",
+            "slug": 6
           },
           "id": "059fb683-cb7e-5d76-8a9b-92e45a64bff8"
         },
         {
           "frontmatter": {
-            "slug": 24,
-            "title": "Todo por tu Gloria"
+            "title": "Todo por tu Gloria",
+            "slug": 24
           },
           "id": "bff28fa4-9819-5444-abe0-7e3715464dcd"
         },
         {
           "frontmatter": {
-            "slug": 9,
-            "title": "Un Siervo para Tu Gloria"
+            "title": "Un Siervo para Tu Gloria",
+            "slug": 9
           },
           "id": "8a02e68c-238b-530c-a016-e1a14e8d1531"
         },
         {
           "frontmatter": {
-            "slug": 12,
-            "title": "Una cosa"
+            "title": "Una cosa",
+            "slug": 12
           },
           "id": "c42f574f-ce7a-5499-b5e4-700acaa3b539"
         },
         {
           "frontmatter": {
-            "slug": 8,
-            "title": "Venga Tu reino"
+            "title": "Venga Tu reino",
+            "slug": 8
           },
           "id": "e932879f-b210-51ea-b6c8-84156ff41418"
         },
         {
           "frontmatter": {
-            "slug": 26,
-            "title": "Venid glorificad a Dios"
+            "title": "Venid glorificad a Dios",
+            "slug": 26
           },
           "id": "84094fcb-12fd-5633-a753-a370e4ea0275"
         }

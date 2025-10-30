@@ -50,12 +50,17 @@ const LyricsViewer = ({
             <CloseIcon />
           </IconButton>
           
-          <Box sx={{ flexGrow: 1, ml: 2 }}>
-            <Typography variant="h6" noWrap>
+          <Box sx={{
+            flexGrow: 1,
+            ml: 1,
+            // maxWidth: { xs: 80, sm: 'none' }
+          }}>
+            <Typography variant="body"
+              sx={{
+                // maxWidth: { xs: 80, sm: 'none' }
+            }}
+            >
               {currentSong.title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" noWrap>
-              {currentSong.artist}
             </Typography>
           </Box>
 
@@ -63,7 +68,7 @@ const LyricsViewer = ({
             label={`${currentSongIndex + 1} / ${totalSongs}`}
             size="small"
             color="primary"
-            sx={{ mr: 2 }}
+            sx={{ mr: 1 }}
           />
 
           <IconButton onClick={onFullscreen} size="small">
@@ -78,7 +83,7 @@ const LyricsViewer = ({
           <PrevIcon />
         </IconButton>
         
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body" color="text.secondary">
           {hasPrev ? 'Anterior' : 'Inicio'} • {hasNext ? 'Siguiente' : 'Fin'}
         </Typography>
         

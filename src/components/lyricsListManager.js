@@ -112,10 +112,15 @@ const LyricsListManager = ({
           startIcon={<ClearIcon />} 
           onClick={onClear}
           color="error"
-          size="small"
+          size="large"
         >
-          Limpiar lista
+          <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
+            Limpiar lista
+          </Box>
         </Button>
+
+
+
       </Box>
 
       <List>
@@ -131,8 +136,8 @@ const LyricsListManager = ({
             sx={getItemStyle(index)}
           >
             {/* Ícono de arrastrar y número */}
-            <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
-              <DragIcon color="action" sx={{ mr: 1 }} />
+            <Box sx={{ display: 'flex', alignItems: 'center', mr: {xs:1, md: 1} }}>
+              <DragIcon color="action" sx={{ mr: {xs:1, md: 1} }} />
               <Chip 
                 label={index + 1} 
                 size="small" 
@@ -157,11 +162,12 @@ const LyricsListManager = ({
               >
                 <ViewIcon />
               </IconButton>
+              
               <IconButton 
                 edge="end" 
                 onClick={() => onRemove(song.listId)}
                 color="error"
-                sx={{ ml: 1 }}
+                sx={{ ml: {xs:0, md: 1} }}
               >
                 <DeleteIcon />
               </IconButton>
