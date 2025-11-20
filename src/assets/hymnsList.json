@@ -92,6 +92,13 @@
         },
         {
           "frontmatter": {
+            "title": "Los pueblos cantarán",
+            "slug": 33
+          },
+          "id": "648c7963-78f2-5093-b638-43e59da50a32"
+        },
+        {
+          "frontmatter": {
             "title": "Mas El Dios de toda gracia",
             "slug": 22
           },
@@ -131,6 +138,13 @@
             "slug": 19
           },
           "id": "ec976dba-db33-59a1-9790-f6ae47be1fb2"
+        },
+        {
+          "frontmatter": {
+            "title": "Providencia",
+            "slug": 31
+          },
+          "id": "31486937-a84e-5321-85db-ddd28acc223a"
         },
         {
           "frontmatter": {
@@ -201,5 +215,12 @@
             "slug": 26
           },
           "id": "84094fcb-12fd-5633-a753-a370e4ea0275"
+        },
+        {
+          "frontmatter": {
+            "title": "Vivir es Cristo",
+            "slug": 32
+          },
+          "id": "7ba7160b-1cce-55d3-ac90-349c50346715"
         }
       ]

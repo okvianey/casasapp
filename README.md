@@ -58,6 +58,9 @@ Si se hace una actualización y no se ve la pagina. Revisar que en gh pages est�
 
 
 
+### Actualización de letras
+Ultimo slug = 33
+
 ## Author
 
 ☕️ Made with coffee and code by [okvianey](https://flatlatte.com/okvianey)
