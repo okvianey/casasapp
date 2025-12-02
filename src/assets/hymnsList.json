@@ -22,6 +22,13 @@
         },
         {
           "frontmatter": {
+            "title": "Considera Aquel",
+            "slug": 36
+          },
+          "id": "38365e2f-22fc-5a3c-8eb2-98e0e40e74d3"
+        },
+        {
+          "frontmatter": {
             "title": "Construiré mi vida",
             "slug": 21
           },
@@ -40,6 +47,13 @@
             "slug": 29
           },
           "id": "310eb8b3-df74-547c-ba92-512c1dd67900"
+        },
+        {
+          "frontmatter": {
+            "title": "El Dios poderoso",
+            "slug": 34
+          },
+          "id": "93f51544-8d29-5e03-9ba8-4372d37b422d"
         },
         {
           "frontmatter": {
@@ -159,6 +173,13 @@
             "slug": 28
           },
           "id": "172e1ffc-7d5f-5070-a4bd-d12fe7f61a27"
+        },
+        {
+          "frontmatter": {
+            "title": "Rey de gloria",
+            "slug": 35
+          },
+          "id": "cd05279a-8e04-56fb-86c4-706eb760507e"
         },
         {
           "frontmatter": {

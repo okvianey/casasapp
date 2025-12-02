@@ -10,7 +10,6 @@ import {
   useMediaQuery
 } from "@mui/material";
 import {
-  PlayArrow,
   Headphones,
   YouTube,
 } from '@mui/icons-material';
@@ -53,23 +52,23 @@ function Musica() {
               WebkitBackgroundClip: 'text',
             }}
           >
-            Nuestra Playlist
+            Escucha nuestra selección de canciones
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            Escucha nuestra selección de canciones.
-          </Typography>
+
         </Box>
 
         {/* Platform Selector */}
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 4 }}>
-          {Object.entries(platforms).map(([key, platform]) => (
+          {Object.entries(platforms).map(([i, platform]) => (
             <Button
-              key={key}
-              variant={activePlatform === key ? "contained" : "outlined"}
+              key={i}
+              variant={platform.name === "Spotify" ? "contained" : "outlined"}
               startIcon={platform.icon}
-              onClick={() => setActivePlatform(key)}
+              href={platform.link}
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
-                borderRadius: 3,
+                // borderRadius: 3,
                 px: 3,
                 py: 1,
                 textTransform: 'none',
@@ -106,7 +105,7 @@ function Musica() {
   
               }}
             > 
-              {/* <Box
+              <Box
                 component="iframe"
                 src={platforms[activePlatform].embed}
                 width="100%"
@@ -119,57 +118,13 @@ function Musica() {
                   display: 'block',
                   borderRadius: '12px',
                 }}
-              /> */}
+              />
             </Paper>
 
-            {/* Direct Links */}
-            <Box sx={{ display: 'flex', gap: 2, mt: 3, justifyContent: 'center' }}>
-              <Button
-                variant="contained"
-                startIcon={<PlayArrow />}
-                href={platforms[activePlatform].link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  borderRadius: 3,
-                  px: 3,
-                  py: 1,
-                  textTransform: 'none',
-                  fontWeight: 'bold',
-                }}
-              >
-                Abrir en {platforms[activePlatform].name}
-              </Button>
-            </Box>
           </Grid>
 
         </Grid>
 
-        {/* All Platforms Links */}
-        {/* <Box sx={{ mt: 6, textAlign: 'center' }}>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-            También disponible en:
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            {Object.entries(platforms).map(([key, platform]) => (
-              <Button
-                key={key}
-                variant="outlined"
-                startIcon={platform.icon}
-                href={platform.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  borderRadius: 2,
-                  px: 3,
-                  textTransform: 'none',
-                }}
-              >
-                {platform.name}
-              </Button>
-            ))}
-          </Box>
-        </Box> */}
       </Container>
       
 
