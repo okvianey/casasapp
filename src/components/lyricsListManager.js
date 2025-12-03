@@ -16,9 +16,9 @@ import {
   Visibility as ViewIcon,
   ClearAll as ClearIcon,
   DragIndicator as DragIcon,
+  Delete,
 } from '@mui/icons-material';
 import { useDragAndDrop } from '../hooks/useDragAndDrop';
-
 
 const LyricsListManager = ({ 
   lyricsList, 
@@ -42,7 +42,7 @@ const LyricsListManager = ({
     return (
       <Paper sx={{ p: 3, textAlign: 'center' }}>
         <Typography color="text.secondary">
-          Tu lista de letras está vacía
+          Tu lista está vacía
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
           Agrega canciones desde el listado principal para ver sus letras en orden
@@ -57,6 +57,7 @@ const LyricsListManager = ({
       borderColor: 'divider',
       borderRadius: 1,
       mb: 1,
+      p: "8px 2px",
       cursor: 'grab',
       transition: 'all 0.2s ease',
       '&:hover': {
@@ -106,21 +107,16 @@ const LyricsListManager = ({
     <Paper sx={{ p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Typography variant="h6">
-          Mi Lista de Letras ({lyricsList.length} canciones)
+          Canciones ({lyricsList.length})
         </Typography>
         <Button 
-          startIcon={<ClearIcon />} 
+          startIcon={<Delete />} 
           onClick={onClear}
           color="error"
-          size="large"
+          size="small"
         >
-          <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
-            Limpiar lista
-          </Box>
+          Limpiar lista
         </Button>
-
-
-
       </Box>
 
       <List>
@@ -136,11 +132,10 @@ const LyricsListManager = ({
             sx={getItemStyle(index)}
           >
             {/* Ícono de arrastrar y número */}
-            <Box sx={{ display: 'flex', alignItems: 'center', mr: {xs:1, md: 1} }}>
-              <DragIcon color="action" sx={{ mr: {xs:1, md: 1} }} />
+            <Box sx={{ display: 'flex', alignItems: 'center', mr: {xs:"5px"} }}>
+              <DragIcon color="action" sx={{ mr: {xs:"2px"} }} />
               <Chip 
                 label={index + 1} 
-                size="small" 
                 color={index === currentSongIndex ? "primary" : "default"}
               />
             </Box>
@@ -148,26 +143,35 @@ const LyricsListManager = ({
             {/* Información de la canción */}
             <ListItemText
               primary={song.title}
-              secondary={song.artist}
-              sx={{ flex: 1 }}
+              sx={{
+                flex: 1,
+                maxWidth: { xs: "160px", sm: "100%"},            // ajusta el ancho que quieras
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: 2,          // máximo 2 líneas
+                WebkitBoxOrient: "vertical",
+                whiteSpace: "normal",
+              }}
+              onClick={() => onView(index)}
             />
 
             {/* Acciones */}
             <ListItemSecondaryAction>
-              <IconButton 
+              {/* <IconButton 
                 edge="end" 
                 onClick={() => onView(index)}
                 color="primary"
                 title="Ver letra"
               >
                 <ViewIcon />
-              </IconButton>
+              </IconButton> */}
               
               <IconButton 
                 edge="end" 
                 onClick={() => onRemove(song.listId)}
                 color="error"
-                sx={{ ml: {xs:0, md: 1} }}
+                sx={{ ml: {xs:0, md: 1}, p:0 }}
               >
                 <DeleteIcon />
               </IconButton>

@@ -42,18 +42,21 @@ export const useLyricsList = () => {
     if (savedList) {
       try {
         const parsedList = JSON.parse(savedList);
-        // Re-hidratar la lista con los datos actuales
-        const hydratedList = parsedList.map(savedSong => {
-          const currentSongData = songsFromMdx.find(s => s.id === savedSong.id);
-          return currentSongData ? { ...currentSongData, listId: savedSong.listId } : savedSong;
-        }).filter(song => song.title);
-        
+
+        // Rehidratar usando los datos actuales (esto recupera body desde MDX)
+        const hydratedList = parsedList
+          .map(savedSong => {
+            const original = songsFromMdx.find(s => s.id === savedSong.id);
+            return original ? { ...original, listId: savedSong.listId } : null;
+          })
+          .filter(Boolean);
+
         setLyricsList(hydratedList);
       } catch (error) {
-        console.error('Error loading saved list:', error);
+        console.error("Error loading saved list:", error);
       }
     }
-    
+
     if (savedIndex) {
       setCurrentSongIndex(parseInt(savedIndex) || 0);
     }
@@ -62,7 +65,15 @@ export const useLyricsList = () => {
   // Guardar en localStorage cuando cambie la lista
   useEffect(() => {
     if (lyricsList.length > 0) {
-      localStorage.setItem('customLyricsList', JSON.stringify(lyricsList));
+      localStorage.setItem(
+        'customLyricsList',
+        JSON.stringify(
+          lyricsList.map(s => ({
+            id: s.id,
+            listId: s.listId
+          }))
+        )
+      );
       localStorage.setItem('currentLyricsIndex', currentSongIndex.toString());
     } else {
       localStorage.removeItem('customLyricsList');

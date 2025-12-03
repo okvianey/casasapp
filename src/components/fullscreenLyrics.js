@@ -45,13 +45,18 @@ const FullscreenLyrics = ({ lyrics }) => {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: 'relative', backgroundColor: 'background.paper',  }}>
-          <Toolbar sx={{ minHeight: '40px' }}>
+        <AppBar sx={{
+          position: 'relative',
+          backgroundColor: 'background.paper',
+
+        }}>
+          <Toolbar sx={{ minHeight: '10px' }}>
             <IconButton
               edge="start"
               // color="inherit"
               onClick={handleClose}
-              aria-label="close"
+              aria-label="cerrar"
+              size='small'
             >
               <CloseIcon />
             </IconButton>
@@ -60,7 +65,7 @@ const FullscreenLyrics = ({ lyrics }) => {
 
         <Box
           sx={{
-            height: 'calc(100vh - 64px)',
+            // height: 'calc(100vh - 64px)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -86,19 +91,25 @@ const FullscreenLyrics = ({ lyrics }) => {
               textAlign: 'center',
               fontFamily: 'inherit',
               maxWidth: '800px',
-                margin: "0",
+              margin: "0",
               '&.MuiTypography-root h3': {
                 margin: "2px 0 1px 0",
                 // fontSize: { xs: '1.2rem', md: '1.5rem' },
                 },
               '&.MuiTypography-root p': {
                 margin: "0",
+                padding: '0 2px'
                 },
               '& strong': {
                 display: "flex",
                 justifyContent: "center",
                 margin: "40px 0 15px 0",
                 // padding: "15px 0",
+                },
+              '& em': {
+                justifyContent: "center",
+                // margin: "40px 0",
+                padding: "20px 15px",
                 },
             }}
           >

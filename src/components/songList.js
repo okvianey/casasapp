@@ -69,7 +69,7 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
             mb: 1,
           }}
         />
-        <Typography variant="body" color="text.secondary"
+        <Typography variant="body" color="text.secondary" 
           sx={{
             mt: 1,
           }}
@@ -95,7 +95,7 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
           >
             <ListItemText
               primary={
-                <Typography variant="subtitle1" component="div"
+                <Typography variant="body" component="div"
                   sx={{
                   maxWidth: { xs: 180, sm: 'none' },
                 }}
@@ -104,11 +104,7 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
                   {/* {song.frontmatter.title} */}
                 </Typography>
               }
-              secondary={
-                <Typography variant="body2" color="text.secondary">
-                  {song.artist}
-                </Typography>
-              }
+      
             />
             
             <ListItemSecondaryAction>
@@ -117,7 +113,6 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
                 <IconButton
                   onClick={() => onViewFullscreen(song)}
                   color="primary"
-                  sx={{ mr: 1 }}
                 >
                   <FullscreenIcon />
                 </IconButton>
@@ -134,6 +129,9 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
                     onClick={() => !isInList(song.id) && onAddToLyricsList(song)}
                     disabled={isInList(song.id)}
                     color={isInList(song.id) ? "success" : "primary"}
+                    sx={{
+                      p: 0
+                    }}
                   >
                     <AddToListIcon />
                   </IconButton>

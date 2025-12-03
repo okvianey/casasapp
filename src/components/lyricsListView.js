@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { marked } from "marked"
 import {
   Box,
   Tabs,
@@ -58,8 +59,7 @@ const LyricsListView = () => {
       setFullscreenOpen(true);
     }
   };
-
-   // Función para renderizar contenido seguro
+  // Función para renderizar contenido seguro
   const renderSafeContent = (content) => {
     if (!content) {
       return (
@@ -68,22 +68,31 @@ const LyricsListView = () => {
         </Typography>
       );
     }
-
+    const html = marked.parse(currentSong.body);
      // Por ahora, renderizar como texto plano
     return (
-      <Typography
-        component="pre"
+      <Box
+        dangerouslySetInnerHTML={{ __html: html }}
         sx={{
-          whiteSpace: 'pre-wrap',
           textAlign: 'center',
-          fontSize: '1rem',
-          // fontSize: '1rem',
-          // lineHeight: 1.4,
-          fontFamily: 'inherit',
+          "& h1, & h2, & h3": {
+            margin: "10px 0 5px 0",
+            fontSize: "1rem",
+          },
+          "& p": {
+            margin: "0 0 2px 0",
+          },
+          "& p strong": {
+            display: "flex",
+            flexDirection: "column",
+            margin: "30px 0 0 0"
+          },
+          "& p em": {
+            fontSize: "14px",
+            padding: "0 0 30px 0"
+          }
         }}
-      >
-        {content}
-      </Typography>
+      />
     );
   };
 
@@ -97,12 +106,13 @@ const LyricsListView = () => {
           onChange={(e, newValue) => setCurrentTab(newValue)}
           centered
         >
-          <Tab label={`Todas las Canciones (${allSongs.length})`} />
+          <Tab label={`Todas (${allSongs.length})`} />
           <Tab label={`Mi Lista (${lyricsList.length})`} />
         </Tabs>
       </Paper>
 
       {/* Contenido de las pestañas */}
+      {/* todas las canciones */}
       {currentTab === 0 && (
         <SongList
           songs={allSongs}
@@ -111,7 +121,7 @@ const LyricsListView = () => {
           onViewFullscreen={handleViewFullscreen}
         />
       )}
-
+      {/* Mi lista */}
       {currentTab === 1 && (
         <LyricsListManager
           lyricsList={lyricsList}
@@ -130,15 +140,16 @@ const LyricsListView = () => {
         onClose={handleFullscreenClose}
       >
         <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
+          <Toolbar sx={{ minHeight: "40px" }}>
             <IconButton
               edge="start"
               color="inherit"
+              size='small'
               onClick={handleFullscreenClose}
             >
               <CloseIcon />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6">
+            <Typography sx={{ ml: 2, flex: 1 }} variant="body">
               {fullscreenSong?.title} {fullscreenSong?.artist && `- ${fullscreenSong.artist}`}
             </Typography>
           </Toolbar>
@@ -167,15 +178,15 @@ const LyricsListView = () => {
        {/* Visor de letras principal */}
       {currentTab === 1 &&
         <LyricsViewer
-        currentSong={currentSong}
-        currentSongIndex={currentSongIndex}
-        totalSongs={totalSongs}
-        onNext={nextSong}
-        onPrev={prevSong}
-        onClose={() => goToSong(-1)}
-        onFullscreen={handleFullscreenFromViewer}
-        hasNext={hasNext}
-        hasPrev={hasPrev}
+          currentSong={currentSong}
+          currentSongIndex={currentSongIndex}
+          totalSongs={totalSongs}
+          onNext={nextSong}
+          onPrev={prevSong}
+          onClose={() => goToSong(-1)}
+          onFullscreen={handleFullscreenFromViewer}
+          hasNext={hasNext}
+          hasPrev={hasPrev}
       />}
     </Box>
   );

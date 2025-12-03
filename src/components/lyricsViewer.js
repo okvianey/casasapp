@@ -1,10 +1,11 @@
-import React from 'react';
-
+import React from 'react'
+import { marked } from "marked"
 import {
   Card,
   CardContent,
   Typography,
   IconButton,
+  Button,
   Box,
   Chip,
   AppBar,
@@ -29,6 +30,7 @@ const LyricsViewer = ({
   hasPrev,
 }) => {
   if (!currentSong) {
+
     return (
       <Card sx={{ textAlign: 'center', p: 4 }}>
         <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -41,25 +43,17 @@ const LyricsViewer = ({
     );
   }
 
+  const html = marked.parse(currentSong.body);
+
   return (
-    <Card sx={{ mb: 2 }}>
+    <Card className="lirics" sx={{ mb: 2 }}>
       {/* Header con controles de navegación */}
       <AppBar position="static" color="transparent" elevation={1}>
         <Toolbar variant="dense">
-          <IconButton onClick={onClose} size="small">
-            <CloseIcon />
-          </IconButton>
-          
           <Box sx={{
             flexGrow: 1,
-            ml: 1,
-            // maxWidth: { xs: 80, sm: 'none' }
           }}>
-            <Typography variant="body"
-              sx={{
-                // maxWidth: { xs: 80, sm: 'none' }
-            }}
-            >
+            <Typography variant="body">
               {currentSong.title}
             </Typography>
           </Box>
@@ -78,51 +72,49 @@ const LyricsViewer = ({
       </AppBar>
 
       {/* Controles de navegación */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 2, py: 1 }}>
-        <IconButton onClick={onPrev} disabled={!hasPrev}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 1 }}>
+        <Button color="secondary" onClick={hasPrev ? onPrev : null} disabled={!hasPrev}>
           <PrevIcon />
-        </IconButton>
+          {hasPrev ? 'Anterior' : 'Inicio'} 
+        </Button>
         
-        <Typography variant="body" color="text.secondary">
-          {hasPrev ? 'Anterior' : 'Inicio'} • {hasNext ? 'Siguiente' : 'Fin'}
-        </Typography>
-        
-        <IconButton onClick={onNext} disabled={!hasNext}>
+        <Button color="secondary" onClick={hasNext ? onNext : null} disabled={!hasNext}>
+          {hasNext ? 'Siguiente' : 'Fin'}
           <NextIcon />
-        </IconButton>
+        </Button>
       </Box>
 
-      {/* Letra de la canción - Renderizado MDX */}
-      <CardContent>
-        <Box
-          sx={{
+      {/* Letra de la canción - Renderizado marked */}
+      <CardContent
+        sx={{
             minHeight: 400,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            p: 2,
-          }}
-        >
-          {currentSong.body ? (
-            <Typography
-              component="pre"
+        }}
+      >
+          <Box
+             dangerouslySetInnerHTML={{ __html: html }}
               sx={{
-                whiteSpace: 'pre-wrap',
-                textAlign: 'center',
-                fontSize: '1.1rem',
-                lineHeight: 1.8,
-                fontFamily: 'inherit',
-                width: '100%',
+                width: "100%",
+                textAlign: "center",
+                "& h1, & h2, & h3": {
+                  margin: "10px 0 5px 0",
+                  fontSize: "1rem",
+                },
+                "& p": {
+                  margin: "0 0 2px 0",
+                },
+                "& p strong": {
+                  display: "flex",
+                  flexDirection: "column",
+                  margin: "30px 0 0 0"
+                },
+                "& p em": {
+                  fontSize: "14px"
+                }
               }}
-            >
-              {currentSong.body}
-            </Typography>
-          ) : (
-            <Typography color="text.secondary">
-              No hay letra disponible para esta canción
-            </Typography>
-          )}
-        </Box>
+            />
       </CardContent>
     </Card>
   );

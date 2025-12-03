@@ -13,7 +13,6 @@ import {
   Card,
   CardContent,
   useTheme,
-  Divider,
   Alert
 } from '@mui/material';
 import {
@@ -60,41 +59,6 @@ const InstallPage = () => {
   const [deferredPrompt, setDeferredPrompt] = React.useState(null);
   const [installationStatus, setInstallationStatus] = React.useState('idle');
 
-  const iosSteps = [
-    {
-      label: 'Abre el menú de compartir',
-      description: 'En Safari, toca el ícono de compartir (📤) en la barra inferior',
-      icon: <Share />
-    },
-    {
-      label: 'Selecciona la opción',
-      description: 'Desplázate hacia abajo y toca "Agregar a pantalla de inicio"',
-      icon: <AddBox />
-    },
-    {
-      label: 'Confirma la instalación',
-      description: 'Toca "Agregar" en la esquina superior derecha',
-      icon: <OpenInBrowser />
-    }
-  ];
-
-  const androidSteps = [
-    {
-      label: 'Abre el menú del navegador',
-      description: 'Toca los tres puntos en la esquina superior derecha',
-      icon: <Share />
-    },
-    {
-      label: 'Selecciona instalar',
-      description: 'Toca "Agregar a pantalla de inicio" o "Instalar app"',
-      icon: <AddBox />
-    },
-    {
-      label: 'Confirma la instalación',
-      description: 'Toca "Instalar" o "Agregar" en el diálogo de confirmación',
-      icon: <Smartphone />
-    }
-  ];
   
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
@@ -133,7 +97,7 @@ const InstallPage = () => {
   };
 
   const getPlatformConfig = () => {
-    const { isIOS, isAndroid, isDesktop, isWindows, isMac } = platformInfo;
+    const { isIOS, isAndroid, } = platformInfo;
 
     if (isIOS) {
       return {
@@ -214,7 +178,7 @@ const InstallPage = () => {
   };
 
   const platformConfig = getPlatformConfig();
-  const { isIOS, isAndroid, isDesktop, isMobile, platform } = platformInfo;
+  const { isIOS, isAndroid, } = platformInfo;
 
   return (
     <Layout>
@@ -320,39 +284,6 @@ const InstallPage = () => {
                 </CardContent>
               </Card>
 
-              
-
-              {/* Información de la plataforma */}
-              {/* <Card sx={{ borderRadius: 3 }}>
-                <CardContent sx={{ p: 3 }}>
-                  <Typography variant="h6" gutterBottom fontWeight="bold">
-                    📱 Información del Dispositivo
-                  </Typography>
-                  
-                  <Box sx={{ mt: 2 }}>
-                    <Typography variant="body2" gutterBottom>
-                      <strong>Plataforma:</strong> {platform.toUpperCase()}
-                    </Typography>
-                    <Typography variant="body2" gutterBottom>
-                      <strong>Tipo:</strong> {isMobile ? 'Móvil' : isDesktop ? 'Escritorio' : 'Tablet'}
-                    </Typography>
-                    <Typography variant="body2" gutterBottom>
-                      <strong>Navegador:</strong> {navigator.userAgent.split(' ').find(ua => ua.includes('/')) || 'Desconocido'}
-                    </Typography>
-                  </Box>
-
-                  <Divider sx={{ my: 2 }} />
-
-                  <Typography variant="body2" color="text.secondary">
-                    {isIOS 
-                      ? "La app se agregará como un acceso directo en tu pantalla de inicio"
-                      : isAndroid
-                      ? "La app se instalará como una aplicación nativa"
-                      : "Sigue las instrucciones específicas de tu navegador"
-                    }
-                  </Typography>
-                </CardContent>
-              </Card> */}
               
             </Box>
           </Grid>
