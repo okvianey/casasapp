@@ -19,6 +19,11 @@ import {
   Delete,
 } from '@mui/icons-material';
 import { useDragAndDrop } from '../hooks/useDragAndDrop';
+import { DndContext } from "@dnd-kit/core";
+import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { useSortableList } from "../hooks/useSortableList";
+import SortableItem from "./SortableItem";
+  
 
 const LyricsListManager = ({ 
   lyricsList, 
@@ -28,17 +33,10 @@ const LyricsListManager = ({
   onClear,
   onMove,
 }) => {
-  const {
-    draggedItem,
-    dragOverIndex,
-    handleDragStart,
-    handleDragOver,
-    handleDragLeave,
-    handleDrop,
-    handleDragEnd,
-  } = useDragAndDrop(lyricsList, onMove);
+  const { items, handleDragEnd } = useSortableList(lyricsList, onMove);
 
-  if (lyricsList.length === 0) {
+
+  if (items.length === 0) {
     return (
       <Paper sx={{ p: 3, textAlign: 'center' }}>
         <Typography color="text.secondary">
@@ -51,64 +49,23 @@ const LyricsListManager = ({
     );
   }
 
-  const getItemStyle = (index) => {
-    const baseStyle = {
-      border: 1,
-      borderColor: 'divider',
-      borderRadius: 1,
-      mb: 1,
-      p: "8px 2px",
-      cursor: 'grab',
-      transition: 'all 0.2s ease',
-      '&:hover': {
-        backgroundColor: 'action.hover',
-        boxShadow: 1,
-      },
-      '&:active': {
-        cursor: 'grabbing',
-      },
-    };
-  // Estilo para el elemento que se está arrastrando
-    if (index === draggedItem) {
-      return {
-        ...baseStyle,
-        opacity: 0.5,
-        backgroundColor: 'action.selected',
-        borderColor: 'primary.main',
-      };
-    }
+  const getItemStyle = (isCurrent) => ({
+    border: 1,
+    borderColor: 'divider',
+    borderRadius: 1,
+    mb: 1,
+    p: "8px 2px",
+    transition: 'all 0.2s ease',
+    backgroundColor: isCurrent ? 'primary.light' : 'background.paper',
+    borderWidth: isCurrent ? 2 : 1,
+  });
 
-    // Estilo para el elemento sobre el que se está arrastrando
-    if (index === dragOverIndex) {
-      return {
-        ...baseStyle,
-        backgroundColor: 'action.hover',
-        borderColor: 'primary.main',
-        borderStyle: 'dashed',
-        transform: 'scale(1.02)',
-      };
-    }
-
-    // Estilo para la canción actualmente seleccionada
-    if (index === currentSongIndex) {
-      return {
-        ...baseStyle,
-        backgroundColor: 'primary.light',
-        borderColor: 'primary.main',
-        borderWidth: 2,
-      };
-    }
-
-    return baseStyle;
-  };
 
 
   return (
     <Paper sx={{ p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h6">
-          Canciones ({lyricsList.length})
-        </Typography>
+        <Typography variant="h6">Canciones ({items.length})</Typography>
         <Button 
           startIcon={<Delete />} 
           onClick={onClear}
@@ -119,66 +76,53 @@ const LyricsListManager = ({
         </Button>
       </Box>
 
-      <List>
-        {lyricsList.map((song, index) => (
-          <ListItem
-            key={song.listId}
-            draggable
-            onDragStart={(e) => handleDragStart(e, index)}
-            onDragOver={(e) => handleDragOver(e, index)}
-            onDragLeave={handleDragLeave}
-            onDrop={(e) => handleDrop(e, index)}
-            onDragEnd={handleDragEnd}
-            sx={getItemStyle(index)}
-          >
-            {/* Ícono de arrastrar y número */}
-            <Box sx={{ display: 'flex', alignItems: 'center', mr: {xs:"5px"} }}>
-              <DragIcon color="action" sx={{ mr: {xs:"2px"} }} />
-              <Chip 
-                label={index + 1} 
-                color={index === currentSongIndex ? "primary" : "default"}
-              />
-            </Box>
+      <DndContext onDragEnd={handleDragEnd}>
+        <SortableContext items={items.map((s) => s.listId)} strategy={verticalListSortingStrategy}>
+          <List>
+            {items.map((song, index) => (
+              <SortableItem key={song.listId} id={song.listId}>
+                <ListItem sx={getItemStyle(index === currentSongIndex)}>
+                  
+                  {/* Drag handle */}
+                  <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                    <DragIcon color="action" />
+                    <Chip label={index + 1} color={index === currentSongIndex ? "primary" : "default"} />
+                  </Box>
 
-            {/* Información de la canción */}
-            <ListItemText
-              primary={song.title}
-              sx={{
-                flex: 1,
-                maxWidth: { xs: "160px", sm: "100%"},            // ajusta el ancho que quieras
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                display: "-webkit-box",
-                WebkitLineClamp: 2,          // máximo 2 líneas
-                WebkitBoxOrient: "vertical",
-                whiteSpace: "normal",
-              }}
-              onClick={() => onView(index)}
-            />
+                  {/* Text */}
+                  <ListItemText
+                    primary={song.title}
+                    onClick={() => onView(index)}
+                    sx={{
+                      flex: 1,
+                      maxWidth: { xs: "160px", sm: "100%" },
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      whiteSpace: "normal",
+                      cursor: "pointer",
+                    }}
+                  />
 
-            {/* Acciones */}
-            <ListItemSecondaryAction>
-              {/* <IconButton 
-                edge="end" 
-                onClick={() => onView(index)}
-                color="primary"
-                title="Ver letra"
-              >
-                <ViewIcon />
-              </IconButton> */}
-              
-              <IconButton 
-                edge="end" 
-                onClick={() => onRemove(song.listId)}
-                color="error"
-                sx={{ ml: {xs:0, md: 1}, p:0 }}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
-      </List>
+                  {/* Delete */}
+                  <ListItemSecondaryAction>
+                    <IconButton
+                      edge="end"
+                      onClick={() => onRemove(song.listId)}
+                      color="error"
+                      sx={{ ml: 1, p: 0 }}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              </SortableItem>
+            ))}
+          </List>
+        </SortableContext>
+      </DndContext>
        
     </Paper>
   );
