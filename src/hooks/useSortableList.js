@@ -1,26 +1,27 @@
-import { useState } from "react";
+import { useRef, useEffect } from "react";
 
 export const useSortableList = (initialItems, onReorder) => {
-  const [items, setItems] = useState(initialItems);
+  const itemsRef = useRef(initialItems);
+
+  useEffect(() => {
+    itemsRef.current = initialItems;
+  }, [initialItems]);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
-
     if (!over || active.id === over.id) return;
 
+    const items = itemsRef.current;
     const oldIndex = items.findIndex((i) => i.listId === active.id);
     const newIndex = items.findIndex((i) => i.listId === over.id);
 
-    const newItems = [...items];
-    const [moved] = newItems.splice(oldIndex, 1);
-    newItems.splice(newIndex, 0, moved);
+    if (oldIndex === -1 || newIndex === -1) return;
 
-    setItems(newItems);
-    onReorder(oldIndex, newIndex); // mantiene compatibilidad con tu lógica actual
+    onReorder(oldIndex, newIndex);
   };
 
   return {
-    items,
+    items: initialItems,
     handleDragEnd,
   };
 };

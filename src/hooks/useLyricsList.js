@@ -79,7 +79,7 @@ export const useLyricsList = () => {
       localStorage.removeItem('customLyricsList');
       localStorage.removeItem('currentLyricsIndex');
     }
-  }, [lyricsList, currentSongIndex]);
+  }, [lyricsList, currentSongIndex]);      
 
   const addToLyricsList = (song) => {
     setLyricsList(prev => {

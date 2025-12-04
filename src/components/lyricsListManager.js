@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Typography,
   List,
   ListItem,
   ListItemText,
-  ListItemSecondaryAction,
   Paper,
   Button,
   Chip,
@@ -13,14 +12,11 @@ import {
 } from '@mui/material';
 import {
   Delete as DeleteIcon,
-  Visibility as ViewIcon,
-  ClearAll as ClearIcon,
   DragIndicator as DragIcon,
   Delete,
 } from '@mui/icons-material';
-import { useDragAndDrop } from '../hooks/useDragAndDrop';
-import { DndContext } from "@dnd-kit/core";
-import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { DndContext, TouchSensor, MouseSensor, useSensors, useSensor, closestCenter } from "@dnd-kit/core";
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useSortableList } from "../hooks/useSortableList";
 import SortableItem from "./SortableItem";
   
@@ -34,6 +30,19 @@ const LyricsListManager = ({
   onMove,
 }) => {
   const { items, handleDragEnd } = useSortableList(lyricsList, onMove);
+  // Sensores correctos
+  const mouseSensor = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 5,
+    },
+  });
+
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 150,
+      tolerance: 5,
+    },
+  });
 
 
   if (items.length === 0) {
@@ -76,15 +85,33 @@ const LyricsListManager = ({
         </Button>
       </Box>
 
-      <DndContext onDragEnd={handleDragEnd}>
+      <DndContext
+        sensors={[mouseSensor, touchSensor]}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}>
         <SortableContext items={items.map((s) => s.listId)} strategy={verticalListSortingStrategy}>
           <List>
             {items.map((song, index) => (
               <SortableItem key={song.listId} id={song.listId}>
-                <ListItem sx={getItemStyle(index === currentSongIndex)}>
+                <ListItem
+                  sx={{
+                  ...getItemStyle(index === currentSongIndex),
+                  display: "flex",
+                  alignItems: "center"
+                }}>
                   
                   {/* Drag handle */}
-                  <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                  <Box
+                    {...(song.dragListeners ?? {})}
+                    {...(song.dragAttributes ?? {})}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      mr: 1,
+                      cursor: "grab",
+                      touchAction: "none", 
+                    }}  
+                  >
                     <DragIcon color="action" />
                     <Chip label={index + 1} color={index === currentSongIndex ? "primary" : "default"} />
                   </Box>
@@ -107,16 +134,19 @@ const LyricsListManager = ({
                   />
 
                   {/* Delete */}
-                  <ListItemSecondaryAction>
+                  <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
                     <IconButton
-                      edge="end"
-                      onClick={() => onRemove(song.listId)}
+                      onClick={(e) => {
+                        e.stopPropagation();   // ← Muy importante
+                        onRemove(song.listId);
+                      }}
                       color="error"
-                      sx={{ ml: 1, p: 0 }}
+                      sx={{ p: 0.5 }}
                     >
                       <DeleteIcon />
                     </IconButton>
-                  </ListItemSecondaryAction>
+                  </Box>
+
                 </ListItem>
               </SortableItem>
             ))}

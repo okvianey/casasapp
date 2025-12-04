@@ -15,7 +15,6 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 function BottomBar() {
   const location = useLocation();
   const currentPage = location.pathname;
-  console.log("🚀 ~ currentPage:", currentPage)
 
   const value =
       currentPage === "/" ? 0 :

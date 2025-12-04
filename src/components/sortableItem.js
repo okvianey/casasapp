@@ -9,14 +9,16 @@ export default function SortableItem({ id, children }) {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    touchAction: "pan-y", // ESSENCIAL para móvil
+    // touchAction: "manipulation",
     WebkitUserSelect: "none",
     userSelect: "none",
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      {children}
+    <div ref={setNodeRef} style={style}>
+      <div {...attributes} {...listeners} style={{ touchAction: "none" }}>
+        {children}
+      </div>
     </div>
   );
 }
