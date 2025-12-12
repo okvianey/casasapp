@@ -28,7 +28,7 @@ const FullscreenLyrics = ({ lyrics }) => {
   return (
     <>
       {/* Botón para abrir pantalla completa */}
-      <Tooltip title="Ver patalla completa" placement="top">
+      <Tooltip placement="top">
         <IconButton 
           onClick={handleOpen}
           color="inherit"

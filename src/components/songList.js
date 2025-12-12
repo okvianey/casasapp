@@ -109,7 +109,7 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
             
             <ListItemSecondaryAction>
               {/* Botón para ver en pantalla completa */}
-              <Tooltip title="Ver letra completa">
+              <Tooltip >
                 <IconButton
                   onClick={() => onViewFullscreen(song)}
                   color="primary"
@@ -119,11 +119,7 @@ const SongList = ({ songs, onAddToLyricsList, lyricsList, onViewFullscreen }) =>
               </Tooltip>
 
               {/* Botón para agregar a lista */}
-              <Tooltip title={
-                isInList(song.id) 
-                  ? "Ya en la lista" 
-                  : "Agregar a mi lista de letras"
-              }>
+              <Tooltip>
                 <span>
                   <IconButton
                     onClick={() => !isInList(song.id) && onAddToLyricsList(song)}
