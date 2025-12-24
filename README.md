@@ -59,7 +59,7 @@ Si se hace una actualización y no se ve la pagina. Revisar que en gh pages est�
 
 
 ### Actualización de letras
-Ultimo slug = 36
+Ultimo slug = 38
 
 ## Author
 

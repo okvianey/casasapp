@@ -85,6 +85,13 @@
         },
         {
           "frontmatter": {
+            "title": "Gloria en las alturas",
+            "slug": 37
+          },
+          "id": "25b14675-4649-5bc7-8c72-3cc7b8d410bd"
+        },
+        {
+          "frontmatter": {
             "title": "Glorifícate",
             "slug": 11
           },
@@ -187,6 +194,13 @@
             "slug": 35
           },
           "id": "cd05279a-8e04-56fb-86c4-706eb760507e"
+        },
+        {
+          "frontmatter": {
+            "title": "Santa la noche",
+            "slug": 38
+          },
+          "id": "1e47438a-281b-52c9-a2d3-16d8b8a220d8"
         },
         {
           "frontmatter": {
