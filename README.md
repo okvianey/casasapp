@@ -36,7 +36,7 @@ Some third-party plugins that we used to build this template. Please check their
 ## Doc
 
 Para iniciar servidor
-* gatsby dev
+* gatsby develop
 
 Para mandar a producción
 * gatsby build
@@ -56,10 +56,12 @@ Si hay error al hacer deploy, primero correr servidor con gatsby dev
 
 Si se hace una actualización y no se ve la pagina. Revisar que en gh pages esté el subdominio actualizado con su respectivo CNAME
 
+22/01/26
+Al agregar el signo "!" en el titulo genero error
 
 
 ### Actualización de letras
-Ultimo slug = 39
+Ultimo slug = 41
 
 ## Author
 
