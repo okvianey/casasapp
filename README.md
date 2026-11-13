@@ -61,10 +61,23 @@ Al agregar el signo "!" en el titulo genero error
 
 
 ### Actualización de letras
-Ultimo slug = 41
+Ultimo slug = 44
+
+## Query para lista
+query MyQuery {
+  allMdx {
+    nodes {
+      frontmatter {
+        title
+        slug
+      }
+      id
+    }
+  }
+}
 
 ## Author
 
 ☕️ Made with coffee and code by [okvianey](https://flatlatte.com/okvianey)
-- Linkedin - [@vianydev](https://www.linkedin.com/in/vianydev/)
-- Github - [@vianydev](https://github.com/okvianey)
+- Linkedin - [@okvianey](https://www.linkedin.com/in/okvianey/)
+- Github - [@okvianey](https://github.com/okvianey)
